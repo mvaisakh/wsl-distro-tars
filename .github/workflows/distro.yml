@@ -12,6 +12,7 @@ jobs:
     - name: Setup prerequisites
       run: |
         sudo apt install -y docker original-awk
+        sudo systemctl start docker
     - name: Generate tars
       run: |
         bash wsl-tar-gen.sh
