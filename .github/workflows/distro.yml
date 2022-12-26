@@ -7,7 +7,7 @@ jobs:
   generate-distros:
     runs-on: ubuntu-latest
     container:
-      image: archlinux:latest
+      image: manjarolinux/base:latest
 
     steps:
     - name: Setup prerequisites
