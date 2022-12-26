@@ -24,16 +24,65 @@ jobs:
         docker ps --filter status=exited -q | xargs docker rm || echo "Ignoring docker pruning"
         git config --global --add safe.directory /__w/wsl-distro-tars/wsl-distro-tars
         bash wsl-tar-gen.sh
-    - name: Generate release
-      run: |
-        set -x
-        git status
-        echo $PWD
-        assets=()
-        for asset in ./*.tar; do
-          assets+=("-a" "$asset")
-        done
-        tag_name="WDT Release ${GITHUB_REF##*/}"
-        hub release create "${assets[@]}" -m "$tag_name" "$(date +%d%m%y)"
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+         tag_name: ${{ steps.get-date.outputs.date }}
+         release_name: WDT Release ${{ github.ref }}
+    - name: Upload alpine tar
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./alpine-${{ steps.get-date.outputs.date }}.tar
+        asset_name: alpine-${{ steps.get-date.outputs.date }}.tar
+        asset_content_type: application/tar
+    - name: Upload archlinux tar
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./archlinux-${{ steps.get-date.outputs.date }}.tar
+        asset_name: archlinux-${{ steps.get-date.outputs.date }}.tar
+        asset_content_type: application/tar
+    - name: Upload centos tar
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./centos-${{ steps.get-date.outputs.date }}.tar
+        asset_name: centos-${{ steps.get-date.outputs.date }}.tar
+        asset_content_type: application/tar
+    - name: Upload debian tar
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./debian-${{ steps.get-date.outputs.date }}.tar
+        asset_name: debian-${{ steps.get-date.outputs.date }}.tar
+        asset_content_type: application/tar
+    - name: Upload fedora tar
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./fedora-${{ steps.get-date.outputs.date }}.tar
+        asset_name: fedora-${{ steps.get-date.outputs.date }}.tar
+        asset_content_type: application/tar
+    - name: Upload ubuntu tar
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./ubuntu-${{ steps.get-date.outputs.date }}.tar
+        asset_name: ubuntu-${{ steps.get-date.outputs.date }}.tar
+        asset_content_type: application/tar                              
