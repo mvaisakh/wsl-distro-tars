@@ -13,7 +13,7 @@ jobs:
     - uses: actions/checkout@v3
     - name: Setup prerequisites
       run: |
-        sudo apt install -y docker.io original-awk
+        apt install -y hub docker.io original-awk
     - name: Generate tars
       run: |
         bash wsl-tar-gen.sh
