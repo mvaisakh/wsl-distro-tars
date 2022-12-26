@@ -1,0 +1,28 @@
+name: Distro tar generator
+
+on:
+  push:
+
+jobs:
+  generate-distros:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup prerequisites
+      run: |
+        sudo apt install -y docker original-awk
+    - name: Generate tars
+      run: |
+        bash wsl-tar-gen.sh
+    - name: Generate release
+      run: |
+        set -x
+        assets=()
+        for asset in ./*.tar; do
+          assets+=("-a" "$asset")
+        done
+        tag_name="WDT Release ${GITHUB_REF##*/}"
+        hub release create "${assets[@]}" -m "$tag_name"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
