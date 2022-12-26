@@ -18,7 +18,7 @@ jobs:
       id: get-date
       run: |
         ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
-        echo ::set-output name=date::$(/bin/date -u "+%d%m%Y")
+        echo "date=$(/bin/date -u '+%d%m%Y')" >> $GITHUB_ENV
     - name: Generate tars
       run: |
         docker ps --filter status=exited -q | xargs docker rm || echo "Ignoring docker pruning"
@@ -30,16 +30,16 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-         tag_name: ${{ steps.get-date.outputs.date }}
-         release_name: WDT Release ${{ github.ref }}
+         tag_name: ${{ env.date }}
+         release_name: WDT Release ${{ env.date }}
     - name: Upload alpine tar
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./alpine-${{ steps.get-date.outputs.date }}.tar
-        asset_name: alpine-${{ steps.get-date.outputs.date }}.tar
+        asset_path: ./alpine-${{ env.date }}.tar
+        asset_name: alpine-${{ env.date }}.tar
         asset_content_type: application/tar
     - name: Upload archlinux tar
       uses: actions/upload-release-asset@v1
@@ -47,8 +47,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./archlinux-${{ steps.get-date.outputs.date }}.tar
-        asset_name: archlinux-${{ steps.get-date.outputs.date }}.tar
+        asset_path: ./archlinux-${{ env.date }}.tar
+        asset_name: archlinux-${{ env.date }}.tar
         asset_content_type: application/tar
     - name: Upload centos tar
       uses: actions/upload-release-asset@v1
@@ -56,8 +56,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./centos-${{ steps.get-date.outputs.date }}.tar
-        asset_name: centos-${{ steps.get-date.outputs.date }}.tar
+        asset_path: ./centos-${{ env.date }}.tar
+        asset_name: centos-${{ env.date }}.tar
         asset_content_type: application/tar
     - name: Upload debian tar
       uses: actions/upload-release-asset@v1
@@ -65,8 +65,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./debian-${{ steps.get-date.outputs.date }}.tar
-        asset_name: debian-${{ steps.get-date.outputs.date }}.tar
+        asset_path: ./debian-${{ env.date }}.tar
+        asset_name: debian-${{ env.date }}.tar
         asset_content_type: application/tar
     - name: Upload fedora tar
       uses: actions/upload-release-asset@v1
@@ -74,8 +74,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./fedora-${{ steps.get-date.outputs.date }}.tar
-        asset_name: fedora-${{ steps.get-date.outputs.date }}.tar
+        asset_path: ./fedora-${{ env.date }}.tar
+        asset_name: fedora-${{ env.date }}.tar
         asset_content_type: application/tar
     - name: Upload ubuntu tar
       uses: actions/upload-release-asset@v1
@@ -83,6 +83,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./ubuntu-${{ steps.get-date.outputs.date }}.tar
-        asset_name: ubuntu-${{ steps.get-date.outputs.date }}.tar
+        asset_path: ./ubuntu-${{ env.date }}.tar
+        asset_name: ubuntu-${{ env.date }}.tar
         asset_content_type: application/tar                              
