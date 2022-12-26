@@ -6,6 +6,8 @@ on:
 jobs:
   generate-distros:
     runs-on: ubuntu-latest
+    container:
+      image: ubuntu:latest
 
     steps:
     - uses: actions/checkout@v3
