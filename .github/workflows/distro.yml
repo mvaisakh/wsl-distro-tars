@@ -7,13 +7,13 @@ jobs:
   generate-distros:
     runs-on: ubuntu-latest
     container:
-      image: ubuntu:latest
+      image: archlinux:latest
 
     steps:
     - uses: actions/checkout@v3
     - name: Setup prerequisites
       run: |
-        apt install -y hub docker.io original-awk
+        pacman -Syu --needed --noconfirm hub docker
     - name: Generate tars
       run: |
         bash wsl-tar-gen.sh
