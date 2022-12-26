@@ -17,6 +17,7 @@ jobs:
     - name: Generate tars
       run: |
         docker ps --filter status=exited -q | xargs docker rm || echo "Ignoring docker pruning"
+        git config --global --add safe.directory /__w/wsl-distro-tars/wsl-distro-tars
         bash wsl-tar-gen.sh
     - name: Generate release
       run: |
