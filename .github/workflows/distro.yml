@@ -10,10 +10,10 @@ jobs:
       image: archlinux:latest
 
     steps:
-    - uses: actions/checkout@v3
     - name: Setup prerequisites
       run: |
-        pacman -Syu --needed --noconfirm hub docker
+        pacman -Syu --needed --noconfirm hub docker git
+    - uses: actions/checkout@v3
     - name: Generate tars
       run: |
         bash wsl-tar-gen.sh
