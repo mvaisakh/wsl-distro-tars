@@ -13,7 +13,6 @@ fi
 
 if command -v awk > /dev/null 2>&1 ; then
     echo "awk found"
-    echo "$(docker -v)"
 else
     echo "awk not found! Please install awk and run this script again!"
     exit
