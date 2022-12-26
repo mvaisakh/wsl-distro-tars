@@ -34,7 +34,7 @@ DISTROS=(
 
 # begin tar generation
 for ELEMENT in ${DISTROS[@]}; do
-    docker run -t $ELEMENT sh ls /
+    docker run -t $ELEMENT sh -c echo
     containerID=$(docker container ls -a | grep -i $ELEMENT | awk '{print $1}')
     docker export $containerID > $TAR_DIR/$ELEMENT-$(date +%d%m%y).tar
     # Remove the docker image to avoid piling up of containers
