@@ -21,6 +21,8 @@ jobs:
     - name: Generate release
       run: |
         set -x
+        git status
+        echo $PWD
         assets=()
         for asset in ./*.tar; do
           assets+=("-a" "$asset")
