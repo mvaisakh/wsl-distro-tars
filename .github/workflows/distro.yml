@@ -16,7 +16,7 @@ jobs:
     - uses: actions/checkout@v3
     - name: Generate tars
       run: |
-        docker rm $(docker ps --filter status=exited -q)
+        docker ps --filter status=exited -q | xargs docker rm
         bash wsl-tar-gen.sh
     - name: Generate release
       run: |
