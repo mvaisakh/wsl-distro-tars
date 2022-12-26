@@ -25,6 +25,6 @@ jobs:
           assets+=("-a" "$asset")
         done
         tag_name="WDT Release ${GITHUB_REF##*/}"
-        hub release create "${assets[@]}" -m "$tag_name"
+        hub release create "${assets[@]}" -m "$tag_name" "$(date +%d%m%y)"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
