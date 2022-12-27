@@ -1,5 +1,7 @@
 # WSL Distro Tars (WDT)
 
+[![Distro tar generator](https://github.com/mvaisakh/wsl-distro-tars/actions/workflows/distro.yml/badge.svg?branch=main)](https://github.com/mvaisakh/wsl-distro-tars/actions/workflows/distro.yml)
+
 A simple script that generates importable tar files for Windows Subsystem for Linux (WSL2). This allows users to install any desired distro on their WSL2 machine.
 ![Alpine Linux](https://i.imgur.com/t0h5GOu.png) ![ArchLinux](https://i.imgur.com/aQdRdiA.png)
 
