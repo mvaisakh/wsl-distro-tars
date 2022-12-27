@@ -24,15 +24,21 @@ Grab the latest tarballs of your favourite distro from the [Releases Page](https
 
 Make sure you have WSL2 setup properly and it is set to default.
 To import any tarball:
+
 `wsl --import distroName path\to\create\vhd path\to\downloaded\tarball`
 > Replace __distroName__ with any name that you desire to call it, replace __path\to\create\vhd__ with the absolute path where you want to create the virtual hard disk of the distro and replace __path\to\downloaded\tarball__ with the absolute path to the downloaded tarball.
+
 then to run your distro
+
 `wsl -d distroName`
 
 Example:
 Here my __distroName__ is *alpine*, __virutal hard disk__ path is __D:\wslStorage__ and tarball is in __C:\Users\admin\Downloads\alpine-26122022.tar__
+
 `wsl --import alpine D:\wslStorage\ C:\Users\admin\Downloads\alpine-26122022.tar`
+
 to run
+
 `wsl -d alpine`
 
 ## My favourite distro isn't available, what do I do?
@@ -40,6 +46,7 @@ to run
 **It's simple!**
 The prerequisites for generating tarballs are `docker` and `awk`.
 Edit the wsl-tar-gen.sh (but make sure your distro exists in [DockerHub](https://hub.docker.com/), since the script extracts everything from docker) and run the script using:
+
 `bash wsl-tar-gen.sh`
 
 If you want to your favourite distro updated in my repository, I'm happy to accept contributions! :)
