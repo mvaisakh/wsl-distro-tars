@@ -18,7 +18,7 @@ jobs:
       id: get-date
       run: |
         ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
-        echo "date=$(/bin/date -u '+%d%m%Y')" >> $GITHUB_ENV
+        echo "date=$(/bin/date -u '+%d%m%Y%I%M')" >> $GITHUB_ENV
     - name: Generate tars
       run: |
         docker ps --filter status=exited -q | xargs docker rm || echo "Ignoring docker pruning"
