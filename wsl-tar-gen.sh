@@ -26,6 +26,7 @@ DISTROS=(
     "alpine"
     "archlinux"
     "centos"
+    "clearlinux"
     "debian"
     "fedora"
     "ubuntu"
