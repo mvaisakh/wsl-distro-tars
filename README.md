@@ -49,4 +49,8 @@ Edit the wsl-tar-gen.sh (but make sure your distro exists in [DockerHub](https:/
 
 `bash wsl-tar-gen.sh`
 
-If you want to your favourite distro updated in my repository, I'm happy to accept contributions! :)
+## Contributing
+
+If you want to your favourite distro updated in my repository, fork and clone the repository. Edit `wsl-tar-gen.sh` and edit the macro `DISTROS` and add your favourite distro name there. But again make sure that your distro exists in [DockerHub](https://hub.docker.com/)!
+
+You can refer to [this example commit](https://github.com/mvaisakh/wsl-distro-tars/commit/5567b03) (make sure you follow the commit message style) and create a pull request to this repository
