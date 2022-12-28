@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
 # Copyright (C) 2022 Vaisakh Murali
 # SPDX-License-Identifier: GPL-3.0-only
 
