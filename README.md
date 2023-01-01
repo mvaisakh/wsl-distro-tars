@@ -16,6 +16,7 @@ At the moment only a few distributions are exported. These include:
 * Alpine Linux
 * Arch Linux
 * CentOS
+* Clear Linux
 * Debian
 * Fedora
 * Ubuntu
