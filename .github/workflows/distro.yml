@@ -32,66 +32,10 @@ jobs:
       with:
          tag_name: ${{ env.date }}
          release_name: WDT Release ${{ env.date }}
-    - name: Upload alpine tar
-      uses: actions/upload-release-asset@v1
+    - name: Upload WDT tars
+      uses: xresloader/upload-to-github-release@main
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./alpine-${{ env.date }}.tar
-        asset_name: alpine-${{ env.date }}.tar
-        asset_content_type: application/tar
-    - name: Upload archlinux tar
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./archlinux-${{ env.date }}.tar
-        asset_name: archlinux-${{ env.date }}.tar
-        asset_content_type: application/tar
-    - name: Upload centos tar
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./centos-${{ env.date }}.tar
-        asset_name: centos-${{ env.date }}.tar
-        asset_content_type: application/tar
-    - name: Upload clearlinux tar
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./clearlinux-${{ env.date }}.tar
-        asset_name: clearlinux-${{ env.date }}.tar
-        asset_content_type: application/tar
-    - name: Upload debian tar
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./debian-${{ env.date }}.tar
-        asset_name: debian-${{ env.date }}.tar
-        asset_content_type: application/tar
-    - name: Upload fedora tar
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./fedora-${{ env.date }}.tar
-        asset_name: fedora-${{ env.date }}.tar
-        asset_content_type: application/tar
-    - name: Upload ubuntu tar
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./ubuntu-${{ env.date }}.tar
-        asset_name: ubuntu-${{ env.date }}.tar
-        asset_content_type: application/tar                              
+        file: "*.tar"
+        release_id: ${{ steps.create_release.outputs.id }}
