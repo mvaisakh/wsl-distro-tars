@@ -27,17 +27,5 @@ jobs:
         git config --global --add safe.directory /__w/wsl-distro-tars/wsl-distro-tars
         bash wsl-tar-gen.sh
     - name: Create Release
-      id: create_release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-         tag_name: ${{ env.date }}
-         release_name: WDT Release ${{ env.date }}
-    - name: Upload WDT tars
-      uses: xresloader/upload-to-github-release@v1.3.9
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        file: "*.tar"
-        release_id: ${{ steps.create_release.outputs.id }}
+      run: |
+        gh release create ${{ env.date }} ./*.tar --generate-notes
