@@ -28,6 +28,6 @@ jobs:
         bash wsl-tar-gen.sh
     - name: Create Release
       run: |
-        gh release create ${{ env.date }} ./*.tar --generate-notes
+        gh release create ${{ env.date }} *.tar --generate-notes -t "WDT Release ${{ env.date }}"
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
