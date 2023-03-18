@@ -30,6 +30,7 @@ DISTROS=(
     "clearlinux"
     "debian"
     "fedora"
+    "fedora:rawhide"
     "ubuntu"
 )
 
