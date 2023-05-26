@@ -37,6 +37,7 @@ DISTROS=(
     "debian:unstable-slim"
     "fedora"
     "fedora:rawhide"
+    "opensuse/tumbleweed"
     "ubuntu"
     "ubuntu:devel"
 )

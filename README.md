@@ -19,6 +19,7 @@ At the moment only a few distributions are exported. These include:
 * Clear Linux
 * Debian (Stable and Unstable with slim variants)
 * Fedora (Stable and Rawhide)
+* openSUSE Tumbleweed
 * Ubuntu (Stable and Bleeding edge [devel])
 
 Grab the latest tarballs of your favourite distro from the [Releases Page](https://github.com/mvaisakh/wsl-distro-tars/releases)!
