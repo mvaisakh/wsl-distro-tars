@@ -20,7 +20,10 @@ else
 fi
 
 # set dir for tars
-export TAR_DIR="$PWD"
+export TAR_DIR="$PWD/tars"
+
+# Create tar dir
+mkdir -p $TAR_DIR
 
 # parse desired distro
 DISTROS=(
