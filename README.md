@@ -18,7 +18,7 @@ At the moment only a few distributions are exported. These include:
 * CentOS
 * Clear Linux
 * Debian
-* Fedora
+* Fedora (Stable and Rawhide)
 * Ubuntu
 
 Grab the latest tarballs of your favourite distro from the [Releases Page](https://github.com/mvaisakh/wsl-distro-tars/releases)!
