@@ -17,7 +17,7 @@ At the moment only a few distributions are exported. These include:
 * Arch Linux
 * CentOS
 * Clear Linux
-* Debian
+* Debian (Stable and Unstable with slim variants)
 * Fedora (Stable and Rawhide)
 * Ubuntu (Stable and Bleeding edge [devel])
 
