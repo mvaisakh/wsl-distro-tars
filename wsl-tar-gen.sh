@@ -32,6 +32,7 @@ DISTROS=(
     "fedora"
     "fedora:rawhide"
     "ubuntu"
+    "ubuntu:devel"
 )
 
 # begin tar generation
