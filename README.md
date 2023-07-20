@@ -19,6 +19,7 @@ At the moment only a few distributions are exported. These include:
 * Clear Linux
 * Debian (Stable and Unstable with slim variants)
 * Fedora (Stable and Rawhide)
+* Gentoo (Latest stage3 tarballs)
 * openSUSE Tumbleweed
 * Ubuntu (Stable and Bleeding edge [devel])
 
