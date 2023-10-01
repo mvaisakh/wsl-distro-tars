@@ -27,7 +27,8 @@ mkdir -p $TAR_DIR
 
 # parse desired distro
 DISTROS=(
-    "alpine"
+    "alpine:latest"
+    "alpine:edge"
     "archlinux"
     "centos"
     "clearlinux"
