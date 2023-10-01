@@ -30,6 +30,7 @@ DISTROS=(
     "alpine:latest"
     "alpine:edge"
     "archlinux"
+    "archlinux:base-devel"
     "centos"
     "clearlinux"
     "debian"
