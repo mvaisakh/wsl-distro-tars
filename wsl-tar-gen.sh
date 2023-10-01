@@ -6,7 +6,7 @@
 # Dependency check
 if command -v docker > /dev/null 2>&1 ; then
     echo "docker found"
-    echo "$(docker -v)"
+    docker -v
 else
     echo "docker not found! Please install docker and run this script again!"
     exit
@@ -23,7 +23,7 @@ fi
 export TAR_DIR="$PWD/tars"
 
 # Create tar dir
-mkdir -p $TAR_DIR
+mkdir -p "$TAR_DIR"
 
 # parse desired distro
 DISTROS=(
@@ -46,11 +46,11 @@ DISTROS=(
 )
 
 # begin tar generation
-for ELEMENT in ${DISTROS[@]}; do
-    docker run -t $ELEMENT sh -c echo
-    containerID=$(docker container ls -a | grep -i $ELEMENT | awk '{print $1}')
-    TAR_NAME=$(echo $ELEMENT | tr '/' '_')-$(date -u +%d%m%Y%I%M).tar
-    docker export $containerID > $TAR_DIR/$TAR_NAME
+for ELEMENT in "${DISTROS[@]}"; do
+    docker run -t "$ELEMENT" sh -c echo
+    containerID=$(docker container ls -a | grep -i "$ELEMENT" | awk '{print $1}')
+    TAR_NAME=$(echo "$ELEMENT" | tr '/' '_')-$(date -u +%d%m%Y%I%M).tar
+    docker export "$containerID" > "$TAR_DIR"/"$TAR_NAME"
     # Remove the docker image to avoid piling up of containers
-    docker rm $containerID
+    docker rm "$containerID"
 done
