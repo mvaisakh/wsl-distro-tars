@@ -41,6 +41,7 @@ DISTROS=(
     "fedora:rawhide"
     "gentoo/stage3:latest"
     "gentoo/stage3:systemd"
+    "kalilinux/kali-rolling"
     "opensuse/tumbleweed"
     "ubuntu"
     "ubuntu:devel"
