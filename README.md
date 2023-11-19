@@ -43,9 +43,17 @@ Here my __distroName__ is *alpine*, __virutal hard disk__ path is __D:\wslStorag
 
 `wsl --import alpine D:\wslStorage\ C:\Users\admin\Downloads\alpine-26122022.tar`
 
+*Note: If you plan on running multiple distros at once in WSL, each __virtual hard drive__ will need to be in a separate folder. Therefore the suggested __virtual hard disk__ path for the above command would be: `D:\wslstorage\alpine`*
+
 to run
 
 `wsl -d alpine`
+
+### Connecting to Alpine based app "distros" via WSL in VSCode
+
+`libstdc++` needs to be installed in order for VSCode to connect to "distros" from Docker Hub like `node` or `docker`. Open a terminal to your distro using `wsl -d distroName` and then run `apk update && apk add libstdc++`.
+
+
 
 ## My favourite distro isn't available, what do I do?
 
