@@ -45,6 +45,9 @@ DISTROS=(
     "opensuse/tumbleweed"
     "ubuntu"
     "ubuntu:devel"
+    "docker"
+    "node"
+    "bash"
 )
 
 # begin tar generation
