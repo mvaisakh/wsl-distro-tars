@@ -13,6 +13,7 @@ Distros that are available on the Microsoft Store are really quite limited and f
 
 This script generates WSL2 importable minimal tarballs that are extracted from docker containers.
 At the moment only a few distributions are exported. These include:
+* Adélie Linux
 * Alpine Linux (Latest and Edge)
 * Arch Linux (Stable and base-devel)
 * CentOS

@@ -27,6 +27,7 @@ mkdir -p "$TAR_DIR"
 
 # parse desired distro
 DISTROS=(
+    "adelielinux/adelie"
     "alpine:latest"
     "alpine:edge"
     "archlinux"
