@@ -28,11 +28,12 @@ mkdir -p "$TAR_DIR"
 # parse desired distro
 DISTROS=(
     "adelielinux/adelie"
+    "almalinux:latest"
+    "almalinux:minimal"
     "alpine:latest"
     "alpine:edge"
     "archlinux"
     "archlinux:base-devel"
-    "centos"
     "clearlinux"
     "debian"
     "debian:stable-slim"
@@ -44,6 +45,8 @@ DISTROS=(
     "gentoo/stage3:systemd"
     "kalilinux/kali-rolling"
     "opensuse/tumbleweed"
+    "rockylinux:9"
+    "rockylinux:9-minimal"
     "ubuntu"
     "ubuntu:devel"
 )
