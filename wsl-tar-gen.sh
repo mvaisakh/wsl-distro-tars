@@ -34,7 +34,6 @@ DISTROS=(
     "alpine:edge"
     "archlinux"
     "archlinux:base-devel"
-    "centos"
     "clearlinux"
     "debian"
     "debian:stable-slim"
