@@ -44,6 +44,8 @@ DISTROS=(
     "gentoo/stage3:systemd"
     "kalilinux/kali-rolling"
     "opensuse/tumbleweed"
+    "rockylinux:9"
+    "rockylinux:9-minimal"
     "ubuntu"
     "ubuntu:devel"
 )
