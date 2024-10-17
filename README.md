@@ -16,6 +16,7 @@ At the moment only a few distributions are exported. These include:
 * Adélie Linux
 * AlmaLinux OS
 * Alpine Linux (Latest and Edge)
+* Amazon Linux (Latest and 2)
 * Arch Linux (Stable and base-devel)
 * Clear Linux
 * Debian (Stable and Unstable with slim variants)

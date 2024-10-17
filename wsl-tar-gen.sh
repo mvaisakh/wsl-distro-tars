@@ -32,6 +32,8 @@ DISTROS=(
     "almalinux:minimal"
     "alpine:latest"
     "alpine:edge"
+    "amazonlinux:2"
+    "amazonlinux:latest"
     "archlinux"
     "archlinux:base-devel"
     "clearlinux"
