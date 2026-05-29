@@ -43,8 +43,6 @@ DISTROS=(
     "debian:unstable-slim"
     "fedora"
     "fedora:rawhide"
-    "gentoo/stage3:latest"
-    "gentoo/stage3:systemd"
     "kalilinux/kali-rolling"
     "opensuse/tumbleweed"
     "rockylinux:9"
