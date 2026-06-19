@@ -15,7 +15,7 @@ jobs:
     - name: Setup prerequisites
       run: |
         pacman -Syu --needed --noconfirm hub docker git github-cli
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@v7
     - name: Set date
       id: get-date
       run: |
